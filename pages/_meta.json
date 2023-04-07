@@ -1,15 +1,15 @@
 {
-  "index": "Introduction",
+  "index": "JavaScriptga kirish",
   "another": "Another Page",
   "advanced": "Advanced (A Folder)",
   "about": {
-    "title": "About",
+    "title": "Muallif haqida",
     "type": "page"
   },
   "contact": {
-    "title": "Contact ↗",
+    "title": "Bog'lanish ↗",
     "type": "page",
-    "href": "https://twitter.com/shuding_",
+    "href": "https://t.me/shoxruhpro",
     "newWindow": true
   }
 }

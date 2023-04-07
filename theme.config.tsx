@@ -22,7 +22,7 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase: "https://github.com/shoxruh-r/javascript/",
   footer: {
-    text: "JavaScript Mutaxassislar uchun Eslatmalar",
+    text: "JavaScript: Mutaxassislar uchun Eslatmalar",
   },
 };
 

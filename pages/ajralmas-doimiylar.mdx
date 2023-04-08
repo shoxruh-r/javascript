@@ -1,0 +1,60 @@
+# Ajralmas doimiylar
+
+## null
+
+`null{:js}` obyekt qiymatining ataylab yo'qligini ifodalash uchun ishlatiladi va ibtidoiy qiymatdir. `undefined{:js}` dan farqli o'laroq, u global obyektning mulki emas.
+
+Bu `undefined{:js}` ga teng, lekin u bilan bir xil emas.
+
+```js
+null == undefined; // true
+null === undefined; // false
+```
+
+**DIQQAT**: `typeof null{:js}` bu `'object'{:js}`.
+
+```js
+typeof null; // 'object';
+```
+
+Qiymat `null{:js}` ekanligini to'g'ri tekshirish uchun uni qat'iy tenglik operatori bilan solishtiring.
+
+```js
+var a = null;
+a === null; // true
+```
+
+## isNaN() bilan tekshirish
+
+```js
+globalThis.isNaN();
+```
+
+isNaN() global funksiyasi ma'lum bir qiymat yoki ifodaning NaN ga baholanishini tekshirish uchun ishlatilishi mumkin. Bu funksiya (qisqa qilib aytganda) avval qiymatning son ekanligini tekshiradi. Agar qiymat son bo'lmasa uni songa o'girishga harakat qiladi (\*). Natijada olingan qiymat NaN ekanligini tekshiradi. Shu sababli, ushbu sinov usuli chalkashlikka olib kelishi mumkin.
+
+(\*) "O'girish" usuli unchalik oddiy emas, algoritmni batafsil tushunish uchun [ECMA-262 18.2.3](http://www.ecma-international.org/ecma-262/6.0/#sec-isnan-number) ga qarang.
+
+Ushbu misollar isNaN() xatti-harakatini yaxshiroq tushunishga yordam beradi:
+
+```js
+isNaN(NaN); // true
+isNaN(1); // false: 1 bu son
+isNaN(-2e-4); // false: -2e-4 bu son ilmiy belgilardagi son (-0.0002)
+isNaN(Infinity); // false: Infinity bu son
+isNaN(true); // false: 1 ga o'girildi, bu son
+isNaN(false); // false: 0 ga o'girildi, bu son
+isNaN(null); // false: 0 ga o'girildi, bu son
+isNaN(""); // false: 0 ga o'girildi, bu son
+isNaN(" "); // false: 0 ga o'girildi, bu son
+isNaN("45.3"); // false: sonni ifodalovchi string, 45.3 ga o'girildi
+isNaN("1.2e3"); // false: sonni ifodalovchi string, 1.2e3 ga o'girildi
+isNaN("Infinity"); // false: sonni ifodalovchi string, Infinity ga o'girildi
+isNaN(new Date()); // false: Date obyekti, ma'lum davrdan beri millisekundlarga o'giriladi
+isNaN("10$"); // true: o'girish muvaffaqqiyatsiz kechadi, dollar belgisi raqam emas
+isNaN("hello"); // true: o'girish muvaffaqqiyatsiz kechadi, raqamlar umuman mavjud emas
+isNaN(undefined); // true: NaN ga o'girildi
+isNaN(); // true: NaN ga o'giriladi (bilvosita undefined)
+isNaN(function () {}); // true, o'girish muvaffaqqiyatsiz kechadi
+isNaN({}); // true, o'girish muvaffaqqiyatsiz kechadi
+isNaN([1, 2]); // true, "1, 2" ga o'girildi, songa emas
+```

@@ -6,10 +6,99 @@
 | =                   | **[Ixtiyoriy]** Tayinlash (o'zgaruvchi qiymatini aniqlash)                                 |
 | qiymat              | **\{Tayinlash ishlatilganda Majburiy\}** O'zgaruvchining qiymati **[standart: undefined]** |
 
-O'zgaruvchilar JavaScriptning ko'p qismini tashkil qiladi. Bu o'zgaruvchilar raqamlardan tortib obyektlargacha bo'lgan narsalarni tashkil qiladi, ular butun JavaScript bo'ylab hayotimizni ancha osonlashtiradi.
+O'zgaruvchilar JavaScriptning ko'p qismini tashkil qiladi. Bu o'zgaruvchilar sonlardan tortib obyektlargacha bo'lgan narsalarni tashkil qiladi, ular butun JavaScript bo'ylab hayotimizni ancha osonlashtiradi.
 
 ## O'zgaruvchini aniqlash
 
 ```js
 var myVariable = "Mana bu o'zgaruvchi!";
 ```
+
+Bu o'zgaruvchilarni aniqlashga misol. Bu o'zgaruvchi "string" deb ataladi, chunki u ASCII belgilarga ega (`A-Z`, `0-9`, `!@#$` va boshqalar).
+
+## O'zgaruvchini ishlatish
+
+```js
+var number1 = 5;
+number1 = 3;
+```
+
+Bu yerda biz 5 ga teng bo'lgan "number1" deb nomlangan sonni aniqladik. Biroq, ikkinchi qatorda biz qiymatni 3 ga o'zgartirdik. O'zgaruvchining qiymatini ko'rsatish uchun biz uni konsolga qayd qilamiz:
+
+```js
+console.log(number1); // 3
+```
+
+Qo'shish, ayirish, ko'paytirish, bo'lish va hokazolarni bajarish uchun biz shunday qilamiz:
+
+```js
+number1 = number1 + 5; // 3 + 5 = 8
+number1 = number1 - 6; // 8 - 6 = 2
+var number2 = number1 * 10; // 2 (ko'paytirilgan) 10 = 20
+var number3 = number2 / number1; // 20 (bo'lingan) 2 = 10;
+```
+
+Shuningdek, biz satrlarni birlashtirishimiz yoki ularni birgalikda qo'shishimiz mumkin. Masalan:
+
+```js
+var myString = "Men " + "stringman!"; // "Men stringman!"
+```
+
+## O'zgaruvchi turlari
+
+```js
+var myInteger = 12; // 32-bitli raqam (-2,147,483,648 dan 2,147,483,647 gacha)
+var myLong = 9310141419482; // 64-bitli raqam (-9,223,372,036,854,775,808 dan 9,223,372,036,854,775,807 gacha)
+var myFloat = 5.5; // 32-bitli o'nli kasr (decimal)
+var myDouble = 9310141419482.22; // 64-bitli suzuvchi nuqtali raqam
+var myBoolean = true; // 1-bit true/false (0 yoki 1)
+var myBoolean2 = false;
+var myNotANumber = NaN;
+var NaN_Example = 0 / 0; // NaN: Nolga bo'lish mumkin emas
+var notDefined; // undefined: biz buni hali hech narsaga aniqlamadik
+console.log(aRandomVariable); // undefined
+var myNull = null; // null
+// va hokazo...
+```
+
+## Massivlar va Obyektlar
+
+```js
+var myArray = []; // bo'sh massiv
+```
+
+Massiv bu o'zgaruvchilar to'plami. Masalan:
+
+```js
+var favoriteFruits = ["olma", "apelsin", "qulupnay"];
+var carsInParkingLot = ["Toyota", "Ferrari", "Lexus"];
+var employees = ["Shoxruh", "Muzaffar", "Sardor"];
+var primeNumbers = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31];
+var randomVariables = [2, "hamma turlar ishlaydi", undefined, null, true, 2.51];
+myArray = ["no'l", "bir", "ikki"];
+console.log(myArray[0]); // 0 bu massivning birinchi elementi
+// bu holatda qiymat "no'l" bo'ladi
+myArray = ["John Doe", "Billy"];
+elementNumber = 1;
+console.log(myArray[elementNumber]); // Muzaffar
+```
+
+Obyekt - bu qiymatlar guruhi; massivlardan farqli o'laroq, biz ulardan yaxshiroq narsa qila olamiz:
+
+```js
+myObject = {};
+coder = {
+  firstname: "Shoxruh",
+  lastname: "Rustamaliyev",
+  fullname: "Shoxruh Rustamaliyev",
+};
+pm = {
+  firstname: "Muzaffar",
+  lastname: undefined,
+  fullname: "Muzaffar",
+};
+console.log(coder.fullname); // Shoxruh Rustamaliyev
+console.log(pm.firstname); // Muzaffar
+```
+
+Massiv `["Shoxruh Rustamaliyev", "Muzaffar"]{:js}` yaratish va `myArray[0]{:js}` ga murojaat qilish o'rniga, biz `coder.fullname{:js}` va `pm.fullname{:js}` ga murojaat qilishimiz mumkin.

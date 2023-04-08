@@ -24,6 +24,15 @@ const config: DocsThemeConfig = {
   footer: {
     text: "JavaScript: Mutaxassislar uchun Eslatmalar",
   },
+  banner: {
+    dismissible: true,
+    text: (
+      <a href="https://t.me/Ithouse_ads">
+        "IT House" o'quv markazida Frontend va Backend dasturlash kurslarida
+        taxsil oling!
+      </a>
+    ),
+  },
 };
 
 export default config;

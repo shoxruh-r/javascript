@@ -49,12 +49,42 @@ isNaN(" "); // false: 0 ga o'girildi, bu son
 isNaN("45.3"); // false: sonni ifodalovchi string, 45.3 ga o'girildi
 isNaN("1.2e3"); // false: sonni ifodalovchi string, 1.2e3 ga o'girildi
 isNaN("Infinity"); // false: sonni ifodalovchi string, Infinity ga o'girildi
-isNaN(new Date()); // false: Date obyekti, ma'lum davrdan beri millisekundlarga o'giriladi
+isNaN(new Date()); // false: Date obyekti, ma'lum davrdan beri millisekundlarga o'girildi
 isNaN("10$"); // true: o'girish muvaffaqqiyatsiz kechadi, dollar belgisi raqam emas
 isNaN("hello"); // true: o'girish muvaffaqqiyatsiz kechadi, raqamlar umuman mavjud emas
 isNaN(undefined); // true: NaN ga o'girildi
-isNaN(); // true: NaN ga o'giriladi (bilvosita undefined)
+isNaN(); // true: NaN ga o'girildi (bilvosita undefined)
 isNaN(function () {}); // true, o'girish muvaffaqqiyatsiz kechadi
 isNaN({}); // true, o'girish muvaffaqqiyatsiz kechadi
 isNaN([1, 2]); // true, "1, 2" ga o'girildi, songa emas
 ```
+
+## NaN
+
+`NaN{:js}` "Raqam Emas" degan ma'noni anglatadi. Agar JavaScriptdagi matematik funksiya yoki operatsiya ma'lum bir sonni qaytara olmasa, uning o'rniga `NaN{:js}` qiymatini qaytaradi.
+
+Bu global obyektning xossasi va `Number.NaN{:js}` ga havola
+
+```js
+globalThis.hasOwnProperty("NaN"); // true
+NaN; // NaN
+```
+
+Ehtimol, chalkashlikdir, lekin NaN ham raqam hisoblanadi.
+
+```js
+typeof NaN; // 'number'
+```
+
+Tenglik operatori yordamida `NaN{:js}` ni tekshirmang. Buning o'rniga isNaN ni ko'ring.
+
+```js
+NaN == NaN; // false
+NaN === NaN; // false
+```
+
+## undefined va null
+
+Bir qarashda `null{:js}` va `undefined{:js}` asosan bir xil bo'lib tuyulishi mumkin, ammo lekin nozik, muhim farqlari mavjud.
+
+`undefined{:js}` - bu kompilyatorda qiymatning yo'qligi, chunki u tayinlanmagan o'zgaruvchi kabi, kerakli joyda qiymat qo'yilmagan.

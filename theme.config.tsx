@@ -2,7 +2,7 @@ import React from "react";
 import { DocsThemeConfig } from "nextra-theme-docs";
 
 const config: DocsThemeConfig = {
-  logo: <span>JavaScript</span>,
+  logo: <span>JavaScript o'zbek tilida</span>,
   project: {
     link: "https://github.com/shoxruh-r/javascript/",
   },

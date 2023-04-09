@@ -1,4 +1,4 @@
-# Ajralmas doimiylar
+# Ajralmas konstantalar
 
 ## null
 
@@ -177,3 +177,26 @@ a === b; // true
 1 / a === 1 / b; // false
 // O'zingiz ham sinab ko'ring!
 ```
+
+## Son konstantalar
+
+Raqam konstruktorida foydali bo'lishi mumkin bo'lgan ba'zi ajralmas konstantalar mavjud
+
+```js
+Number.MAX_VALUE; // 1.7976931348623157e+308
+Number.MAX_SAFE_INTEGER; // 9007199254740991
+
+Number.MIN_VALUE; // 5e-324
+Number.MIN_SAFE_INTEGER; // -9007199254740991
+
+Number.EPSILON; // 0.0000000000000002220446049250313
+
+Number.POSITIVE_INFINITY; // Infinity
+Number.NEGATIVE_INFINITY; // -Infinity
+
+Number.NaN; // NaN
+```
+
+Ko'pgina hollarda JavaScriptdagi turli operatorlar (`Number.MIN_SAFE_INTEGER{:js}`, `Number.MAX_SAFE_INTEGER{:js}`) diapazonidan tashqaridagi qiymatlar bilan buziladi.
+
+E'tibor bering, `Number.EPSILON{:js}` - bu bir va birdan katta bo'lgan eng kichik son orasidagi farqni ifodalaydi va shuning uchun ikki xil Number qiymatlar orasidagi mumkin bo'lgan eng kichik farq. Bundan foydalanishning sabablaridan biri raqamlarning JavaScriptda qanday saqlanishi xususiyati bilan bog'liq. Qarang: Ikki raqamning tengligini tekshirish

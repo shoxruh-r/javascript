@@ -136,6 +136,44 @@ console.log(globalThis.undefined); // undefined
 globalThis.hasOwnProperty("undefined"); // true
 ```
 
-_Versiya < 5_
+## Infinity va -Infinity
 
-ECMAScript 5 dan oldin siz `globalThis.undefined{:js}` xususiyati qiymatini hamma narsani buzishi mumkin bo'lgan boshqa qiymatga o'zgartirishingiz mumkin edi.
+```js
+1 / 0; // Infinity
+// To'xta! NIMA?
+```
+
+`Infinity{:js}` - bu global obyektning (shuning uchun global o'zgaruvchi) matematik cheksizlikni ifodalovchi xususiyatidir. Bu `Number.POSITIVE_INFINITY{:js}` ga havola.
+
+Bu har qanday boshqa qiymatdan kattaroq va siz uni 0 ga bo'lish yoki to'lib toshib ketadigan juda katta raqam ifodasini baholash orqali olishingiz mumkin. Bu aslida JavaScriptda 0 ga bo'lish xatosi yo'qligini anglatadi, Infinity esa bor!
+
+Matematik manfiy cheksizlik bo'lgan `-Infinity` ham bor va u boshqa qiymatlardan pastroq.
+
+`-Infinity{:js}` ni olish uchun siz `Infinity{:js}` ni inkor qilasiz yoki `Number.NEGATIVE_INFINITY{:js}` da unga havola olasiz.
+
+```js
+-Infinity; // -Infinity
+```
+
+Endi misollar bilan zavqlanamiz:
+
+```js
+Infinity > 123192310293; // true
+-Infinity < -123192310293; // true
+1 / 0; // Infinity
+Math.pow(123123123, 9123192391023); // Infinity
+Number.MAX_VALUE * 2; // Infinity
+23 / Infinity; // 0
+-Infinity; // -Infinity
+-Infinity === Number.NEGATIVE_INFINITY; // true
+-0; // -0 , ha, tilda manfiy 0 ham bor
+0 === -0; // true
+1 / -0; // -Infinity
+1 / 0 === 1 / -0; // false
+Infinity + Infinity; // Infinity
+var a = 0,
+  b = -0;
+a === b; // true
+1 / a === 1 / b; // false
+// O'zingiz ham sinab ko'ring!
+```

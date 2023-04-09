@@ -2,7 +2,7 @@
 
 ## null
 
-`null{:js}` obyekt qiymatining ataylab yo'qligini ifodalash uchun ishlatiladi va ibtidoiy qiymatdir. `undefined{:js}` dan farqli o'laroq, u global obyektning mulki emas.
+`null{:js}` obyekt qiymatining ataylab yo'qligini ifodalash uchun ishlatiladi va ibtidoiy qiymatdir. `undefined{:js}` dan farqli o'laroq, u global obyektning xususiyati emas.
 
 Bu `undefined{:js}` ga teng, lekin u bilan bir xil emas.
 
@@ -63,7 +63,7 @@ isNaN([1, 2]); // true, "1, 2" ga o'girildi, songa emas
 
 `NaN{:js}` "Raqam Emas" degan ma'noni anglatadi. Agar JavaScriptdagi matematik funksiya yoki operatsiya ma'lum bir sonni qaytara olmasa, uning o'rniga `NaN{:js}` qiymatini qaytaradi.
 
-Bu global obyektning xossasi va `Number.NaN{:js}` ga havola
+Bu global obyektning xususiyati va `Number.NaN{:js}` ga havola
 
 ```js
 globalThis.hasOwnProperty("NaN"); // true
@@ -87,4 +87,55 @@ NaN === NaN; // false
 
 Bir qarashda `null{:js}` va `undefined{:js}` asosan bir xil bo'lib tuyulishi mumkin, ammo lekin nozik, muhim farqlari mavjud.
 
-`undefined{:js}` - bu kompilyatorda qiymatning yo'qligi, chunki u tayinlanmagan o'zgaruvchi kabi, kerakli joyda qiymat qo'yilmagan.
+`undefined{:js}` - bu kompilyatorda qiymatning yo'qligigini bildiradi, chunki u tayinlanmagan o'zgaruvchi kabi kerakli joyda qiymat qo'yilmaganda paydo bo'ladi.
+
+- `undefined{:js}` - tayinlangan qiymatning yo'qligini ifodalovchi global qiymat.
+  - `typeof undefined === 'undefined'{:js}`
+- `null{:js}` - bu o'zgaruvchiga "yo'q qiymat" aniq tayinlanganligini ko'rsatadigan obyekt.
+  - `typeof null === 'object'{:js}`
+
+O'zgaruvchini `undefined{:js}` qilib belgilash o'zgaruvchining amalda mavjud emasligini anglatadi. JSON serializatsiyasi kabi ba'zi jarayonlar obyektlardan `undefined{:js}` xususiyatlarni olib tashlashi mumkin. Aksincha, `null{:js}` xususiyatlar saqlanib qoladi, shuning uchun siz "bo'sh" xususiyat tushunchasini aniq yetkazishingiz mumkin.
+
+Quyidagilar `undefined{:js}` deb baholanadi:
+
+- O'zgaruvchi e'lon qilingan, lekin qiymat tayinlanmagan (ya'ni aniqlangan)
+  - ```js
+    let foo;
+    console.log("undefined mi?", foo === undefined);
+    // undefined mi? true
+    ```
+- Mavjud bo'lmagan xususiyat qiymatiga kirish
+  - ```js
+    let foo = { a: "a" };
+    console.log("undefined mi?", foo.b === undefined);
+    // undefined mi? true
+    ```
+- Qiymat qaytarmagan funksiyaning qaytariladigan qiymati
+  - ```js
+    function foo() {
+      return;
+    }
+    console.log("undefined mi?", foo() === undefined);
+    // undefined mi? true
+    ```
+- Funksiya argumentining e'lon qilingan, lekin funksiya chaqiruvidan olib tashlangandagi qiymati
+  - ```js
+    function foo(param) {
+      console.log("undefined mi?", param === undefined);
+    }
+    foo("a");
+    foo();
+    // undefined mi? false
+    // undefined mi? true
+    ```
+
+`undefined{:js}` ham `globalThis{:js}` obyektining xususiyati.
+
+```js
+console.log(globalThis.undefined); // undefined
+globalThis.hasOwnProperty("undefined"); // true
+```
+
+_Versiya < 5_
+
+ECMAScript 5 dan oldin siz `globalThis.undefined{:js}` xususiyati qiymatini hamma narsani buzishi mumkin bo'lgan boshqa qiymatga o'zgartirishingiz mumkin edi.

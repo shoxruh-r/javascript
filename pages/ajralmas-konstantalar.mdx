@@ -46,9 +46,9 @@ isNaN(false); // false: 0 ga o'girildi, bu son
 isNaN(null); // false: 0 ga o'girildi, bu son
 isNaN(""); // false: 0 ga o'girildi, bu son
 isNaN(" "); // false: 0 ga o'girildi, bu son
-isNaN("45.3"); // false: sonni ifodalovchi string, 45.3 ga o'girildi
-isNaN("1.2e3"); // false: sonni ifodalovchi string, 1.2e3 ga o'girildi
-isNaN("Infinity"); // false: sonni ifodalovchi string, Infinity ga o'girildi
+isNaN("45.3"); // false: sonni ifodalovchi satr, 45.3 ga o'girildi
+isNaN("1.2e3"); // false: sonni ifodalovchi satr, 1.2e3 ga o'girildi
+isNaN("Infinity"); // false: sonni ifodalovchi satr, Infinity ga o'girildi
 isNaN(new Date()); // false: Date obyekti, ma'lum davrdan beri millisekundlarga o'girildi
 isNaN("10$"); // true: o'girish muvaffaqqiyatsiz kechadi, dollar belgisi raqam emas
 isNaN("hello"); // true: o'girish muvaffaqqiyatsiz kechadi, raqamlar umuman mavjud emas
@@ -189,8 +189,6 @@ Number.MAX_SAFE_INTEGER; // 9007199254740991
 Number.MIN_VALUE; // 5e-324
 Number.MIN_SAFE_INTEGER; // -9007199254740991
 
-Number.EPSILON; // 0.0000000000000002220446049250313
-
 Number.POSITIVE_INFINITY; // Infinity
 Number.NEGATIVE_INFINITY; // -Infinity
 
@@ -199,4 +197,45 @@ Number.NaN; // NaN
 
 Ko'pgina hollarda JavaScriptdagi turli operatorlar (`Number.MIN_SAFE_INTEGER{:js}`, `Number.MAX_SAFE_INTEGER{:js}`) diapazonidan tashqaridagi qiymatlar bilan buziladi.
 
-E'tibor bering, `Number.EPSILON{:js}` - bu bir va birdan katta bo'lgan eng kichik son orasidagi farqni ifodalaydi va shuning uchun ikki xil Number qiymatlar orasidagi mumkin bo'lgan eng kichik farq. Bundan foydalanishning sabablaridan biri raqamlarning JavaScriptda qanday saqlanishi xususiyati bilan bog'liq. Qarang: Ikki raqamning tengligini tekshirish
+## NaN qaytaruvchi operatsiyalar
+
+Sonlardan boshqa qiymatlar ustidagi matematik amallar NaN qaytaradi.
+
+```js
+"b" * 3;
+"cde" - "e"[(1, 2, 3)] * 2;
+```
+
+Istisno: bitta sonli massivlar.
+
+```js
+[2] * [3]; // 6 qaytaradi
+```
+
+Shuni ham yodda tutingki, + operatori satrlarni birlashtiradi.
+
+```js
+"a" + "b"; // "ab" qaytaradi
+```
+
+Nolni nolga bo'lish `NaN{:js}` qaytaradi.
+
+```js
+0 / 0; // NaN
+```
+
+Eslatma: Odatda matematikada (JavaScript dasturlashdan farqli o'laroq) nolga bo'lish mumkin emas.
+
+## Math kutubxonasining NaN qaytaruvchi funksiyalari
+
+Odatda, raqamli bo'lmagan argumentlar berilgan matematik funktsiyalar NaN ni qaytaradi.
+
+```js
+Math.floor("a");
+```
+
+Manfiy sonning kvadrat ildizi NaN qaytaradi, chunki `Math.sqrt{:js}` xayoliy yoki murakkab sonlarni qo'llab-quvvatlamaydi.
+
+```js
+Math.sqrt(-1);
+```

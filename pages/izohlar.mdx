@@ -1,0 +1,33 @@
+# Izohlar
+
+## Izohlardan foydalanish
+
+Sharx, maslahatlar qo'shish yoki ba'zi kodlarni bajarishdan chiqarib tashlash uchun JavaScript kod qatorlarini izohlashning ikkita usulini taqdim etadi.
+
+**Bir qatorli izoh `//{:js}`**
+
+`//{:js}` dan keyingi qator oxirigacha hech narsa bajarilmaydi.
+
+```js
+async function getText(link) {
+  // linkdan matnni olib beradi
+  return await (await fetch(link, { async: false })).text();
+}
+// TODO: yana ajoyib narsalarni yozing!
+```
+
+**Ko'p qatorli izoh `/* */{:js}`**
+
+Ochilish `/*{:js}` va yopilish `*/{:js}` orasidagi hamma narsa, xatto ochilish va yopilish turli qatorlarda bo'lsa ham, bajarilmaydi.
+
+```js
+/*
+  linkdan matnni olib beradi.
+  Quyidagi kabi foydalaning:
+  var text = await getText(link)
+*/
+async function getText(link) {
+  return await (await fetch(link, { async: false })).text();
+}
+/* TODO: ko'proq foydali izohlar yozing! */
+```

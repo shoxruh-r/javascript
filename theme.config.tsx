@@ -33,6 +33,11 @@ const config: DocsThemeConfig = {
       </a>
     ),
   },
+  useNextSeoProps() {
+    return {
+      titleTemplate: "%s – JavaScript UZ",
+    };
+  },
 };
 
 export default config;

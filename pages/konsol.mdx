@@ -22,3 +22,49 @@ Konsolga ma'lumotni chiqarish uchun console JavaScript obyektining bir nechta us
 - timeStamp
 - trace
 - warn
+
+## Vaqtni o'lchash - console.time()
+
+`console.time(){:js}` kodingizdagi vazifa qancha vaqt bajarilganini o'lchash uchun ishlatilishi mumkin.
+
+`console.time([yorliq]){:js}` chaqiruvi yangi taymerni ishga tushiradi. `console.timeEnd([yorliq]){:js}` chaqirilganda, asl `.time(){:js}` chaqiruvidan beri o'tkan vaqt millisekundlarda hisoblab chiqiladi va qayd qilinadi.
+
+**1-misol:**
+
+```js
+const request = async (link) => {
+  console.time(link);
+  console.log(await (await fetch(link)).statusText);
+  console.timeEnd(link);
+};
+
+request("https://google.co.uz");
+request("https://yandex.uz");
+```
+
+chiqaradi:
+
+```
+Ok
+http://yandex.uz: 500.248ms
+OK
+http://google.co.uz: 824.67ms
+```
+
+**2-misol**
+
+```js
+console.time("Sikl vaqti");
+
+for (var i = 0; i < 1_000_000; i++) {
+  // qiladigan ish yo'q ...
+}
+
+console.timeEnd("Sikl vaqti");
+```
+
+chiqaradi:
+
+```
+Sikl vaqti: 2.364ms
+```

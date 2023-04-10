@@ -27,7 +27,7 @@ Ochilish `/*` va yopilish `*/` orasidagi hamma narsa, xatto ochilish va yopilish
   var text = await getText(link)
 */
 async function getText(link) {
-  return await (await fetch(link, { async: false })).text();
+  return await (await fetch(link)).text();
 }
 /* TODO: ko'proq foydali izohlar yozing! */
 ```

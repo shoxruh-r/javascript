@@ -77,11 +77,11 @@ console.log("%s imtixondan %d ball oldi", "Shoxruh", 100);
 
 JavaScriptdagi format aniqlovchilarining ro'yxati:
 
-| Aniqlovchi | Chiqish                                 |
-| ---------- | --------------------------------------- |
-| %s         | Qiymatni satr sifatida formatlaydi      |
-| %i yoki %d | Qiymatni butun son sifatida formatlaydi |
-| %f         | Qiymatni kasr son sifatida formatlaydi  |
+| Aniqlovchi     | Chiqish                                 |
+| -------------- | --------------------------------------- |
+| `%s`           | Qiymatni satr sifatida formatlaydi      |
+| `%i` yoki `%d` | Qiymatni butun son sifatida formatlaydi |
+| `%f`           | Qiymatni kasr son sifatida formatlaydi  |
 
 ## Stek izini qo'shish
 
@@ -98,3 +98,63 @@ Eslatma: Kerak bo'lganda, xuddi shu stek iziga Error obyektining xususiyati sifa
 var e = new Error("nimadir");
 console.log(e.stack);
 ```
+
+## Qiymatlar jadvalini tuzish
+
+Ko'pgina muhitlarda console.table() obyektlar va massivlarni jadval formatida ko'rsatish uchun ishlatilishi mumkin.
+
+```js
+console.table(["Salom", "dunyo"]);
+```
+
+bunday ko'rsatadi:
+
+| (index) | Values  |
+| ------- | ------- |
+| 0       | "Salom" |
+| 1       | "dunyo" |
+
+```js
+console.table({ falon: "bir narsa", piston: "bir nima" });
+```
+
+bunday ko'rsatadi:
+
+| (index) | Values      |
+| ------- | ----------- |
+| falon   | "bir narsa" |
+| piston  | "bir nima"  |
+
+```js
+var personArr = [
+  {
+    personId: 123,
+    name: "Jhon",
+    city: "Melbourne",
+    phoneNo: "1234567890",
+  },
+  {
+    personId: 124,
+    name: "Amelia",
+    city: "Sydney",
+    phoneNo: "1234567890",
+  },
+  {
+    personId: 125,
+    name: "Emily",
+    city: "Perth",
+    phoneNo: "1234567890",
+  },
+  {
+    personId: 126,
+    name: "Abraham",
+    city: "Perth",
+    phoneNo: "1234567890",
+  },
+];
+console.table(personArr, ["name", "personId"]);
+```
+
+bunday ko'rsatadi:
+
+![1-rasm](https://i.stack.imgur.com/rgH4u.png)

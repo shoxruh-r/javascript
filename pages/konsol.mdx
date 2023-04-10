@@ -1,6 +1,6 @@
 # Konsol
 
-Konsolga ma'lumotni chiqarish uchun console JavaScript obyektining bir nechta usuli mavjud bo'lib, ular bilan console.dir(console) tanishimiz mumkin. Ko'rsatiladigan usullar odatda quyidagilar:
+Konsolga ma'lumotni chiqarish uchun console JavaScript obyektining bir nechta usuli mavjud bo'lib, ular bilan `console.dir(console){:js}` yordamida tanishishimiz mumkin. Ko'rsatiladigan usullar odatda quyidagilar:
 
 - assert
 - clear
@@ -9,9 +9,6 @@ Konsolga ma'lumotni chiqarish uchun console JavaScript obyektining bir nechta us
 - dir
 - dirxml
 - error
-- group
-- groupCollapsed
-- groupEnd
 - info
 - log
 - profile
@@ -19,11 +16,10 @@ Konsolga ma'lumotni chiqarish uchun console JavaScript obyektining bir nechta us
 - table
 - time
 - timeEnd
-- timeStamp
 - trace
 - warn
 
-## Vaqtni o'lchash - console.time()
+## Vaqtni o'lchash
 
 `console.time(){:js}` kodingizdagi vazifa qancha vaqt bajarilganini o'lchash uchun ishlatilishi mumkin.
 
@@ -67,4 +63,38 @@ chiqaradi:
 
 ```
 Sikl vaqti: 2.364ms
+```
+
+## Chiqishni formatlash
+
+Konsolning ko'pgina chop etish usullari, % belgilaridan foydalangan holda, C ga o'xshash satr formatlashni boshqarishi mumkin:
+
+```js
+console.log("%s imtixondan %d ball oldi", "Shoxruh", 100);
+```
+
+`Shoxruh imtixondan 100 ball oldi{:js}` deb ko'rsatadi.
+
+JavaScriptdagi format aniqlovchilarining ro'yxati:
+
+| Aniqlovchi | Chiqish                                 |
+| ---------- | --------------------------------------- |
+| %s         | Qiymatni satr sifatida formatlaydi      |
+| %i yoki %d | Qiymatni butun son sifatida formatlaydi |
+| %f         | Qiymatni kasr son sifatida formatlaydi  |
+
+## Stek izini qo'shish
+
+```js
+function foo() {
+  console.trace("Qayd qiluvchi ifodam");
+}
+foo();
+```
+
+Eslatma: Kerak bo'lganda, xuddi shu stek iziga Error obyektining xususiyati sifatida kirish mumkinligini bilib qo'ygan yaxshi. Bu avtomatlashtirilgan fikr-mulohazalarni yig'ish uchun foydali bo'lishi mumkin.
+
+```js
+var e = new Error("nimadir");
+console.log(e.stack);
 ```

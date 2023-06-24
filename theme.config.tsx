@@ -29,14 +29,13 @@ const config: DocsThemeConfig = {
     dismissible: true,
     text: (
       <a href="https://t.me/Ithouse_ads">
-        "IT House" o'quv markazida Frontend va Backend dasturlash kurslarida
-        taxsil oling!
+        👉 Dasturlash kurslariga yoziling 👈
       </a>
     ),
   },
   useNextSeoProps() {
     return {
-      titleTemplate: "%s – JavaScript UZ",
+      titleTemplate: "%s – javascript-uz.vercel.app",
     };
   },
 };

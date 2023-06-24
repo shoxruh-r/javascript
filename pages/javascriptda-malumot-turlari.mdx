@@ -1,0 +1,46 @@
+# JavaScriptda ma'lumot turlari
+
+## typeof
+
+`typeof{:js}` - bu JavaScriptda biror ma'lumot turini bilish uchun foydalaniladigan "rasmiy" funksiya, ammo ba'zi hollarda u kutilmagan natijalar berishi mumkin...
+
+**1. Satrlar**
+
+`typeof "String"{:js}` yoki <br/>
+`typeof Date(2023, 13, 01){:js}`
+
+> 'string'
+
+**2. Sonlar**
+
+`typeof 42{:js}`
+
+> 'number'
+
+**3. Mantiqiy qiymat**
+
+`typeof true{:js}`  (to'g'ri qiymatlar true va false)
+
+> 'boolean'
+
+**4. Obyekt**
+
+`typeof {}{:js}` yoki <br/>
+`typeof []{:js}` yoki <br/>
+`typeof null{:js}` yoki <br/>
+`typeof /aaa/{:js}` yoki <br/>
+`typeof Error(){:js}`
+
+> 'object'
+
+**5. Funksiya**
+
+`typeof function () {}{:js}`
+
+> 'function'
+
+**6. Aniqlanmagan**
+
+`var var1; typeof var1{:js}`
+
+> 'undefined'

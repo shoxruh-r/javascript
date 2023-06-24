@@ -3,12 +3,12 @@ import { DocsThemeConfig } from "nextra-theme-docs";
 
 const config: DocsThemeConfig = {
   head: <meta name="google-site-verification" content="JMx3sRKK18n23Ri5xp0lkOP3XzIyPtON_4uQKhxFKB8" />,
-  logo: <span>JavaScript o'zbek tilida</span>,
+  logo: <span>JavaScript</span>,
   project: {
-    link: "https://github.com/shoxruh-r/javascript/",
+    link: "https://github.com/shoxruhpro/javascript/",
   },
   chat: {
-    link: "https://t.me/javascript_uz_chat",
+    link: "https://t.me/+32NYm2pV8zY4NGYy",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"

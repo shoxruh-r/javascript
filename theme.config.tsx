@@ -2,6 +2,7 @@ import React from "react";
 import { DocsThemeConfig } from "nextra-theme-docs";
 
 const config: DocsThemeConfig = {
+  head: <meta name="google-site-verification" content="JMx3sRKK18n23Ri5xp0lkOP3XzIyPtON_4uQKhxFKB8" />,
   logo: <span>JavaScript o'zbek tilida</span>,
   project: {
     link: "https://github.com/shoxruh-r/javascript/",

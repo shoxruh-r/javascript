@@ -2,7 +2,10 @@ import React from "react";
 import { DocsThemeConfig } from "nextra-theme-docs";
 
 const config: DocsThemeConfig = {
-  head: <meta name="google-site-verification" content="JMx3sRKK18n23Ri5xp0lkOP3XzIyPtON_4uQKhxFKB8" />,
+  head: <>
+    <meta name="google-site-verification" content="JMx3sRKK18n23Ri5xp0lkOP3XzIyPtON_4uQKhxFKB8" />
+    <meta name="description" content="Javascript dasturlash tili bo'yicha o'zbek tilida bepul darslar" />
+  </>,
   logo: <span>JavaScript</span>,
   project: {
     link: "https://github.com/shoxruhpro/javascript/",
@@ -35,7 +38,7 @@ const config: DocsThemeConfig = {
   },
   useNextSeoProps() {
     return {
-      titleTemplate: "%s – javascript-uz.vercel.app",
+      titleTemplate: "%s – Javascript darslari"
     };
   },
 };
